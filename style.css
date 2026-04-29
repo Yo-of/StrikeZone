@@ -1,0 +1,165 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #0d0d0d;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    font-family: 'Courier New', monospace;
+}
+
+h1 {
+    color: #e8c84a;
+    font-size: 20px;
+    letter-spacing: 4px;
+    margin-bottom: 8px;
+}
+
+#hud {
+    width: 720px;
+    max-width: 100vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #1c1c1c;
+    border: 1px solid #333;
+    border-radius: 8px 8px 0 0;
+    padding: 10px 20px;
+    color: #fff;
+}
+
+.team-block {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.team-block.reverse {
+    flex-direction: row-reverse;
+}
+
+.tname {
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+.snum {
+    font-size: 38px;
+    font-weight: 900;
+    min-width: 32px;
+    text-align: center;
+}
+
+#timer {
+    font-size: 15px;
+    color: #aaa;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+#wrap {
+    position: relative;
+    width: 720px;
+    max-width: 100vw;
+}
+
+canvas {
+    display: block;
+    width: 100%;
+}
+
+#overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.84);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    color: #fff;
+}
+
+#overlay h2 {
+    font-size: 40px;
+    font-weight: 900;
+    letter-spacing: 3px;
+    color: #e8c84a;
+}
+
+#overlay p {
+    font-size: 13px;
+    color: #888;
+}
+
+#overlay b {
+    color: #e8c84a;
+}
+
+#overlay button {
+    margin-top: 14px;
+    padding: 12px 36px;
+    background: #e8c84a;
+    color: #111;
+    border: none;
+    border-radius: 8px;
+    font-weight: 900;
+    font-size: 15px;
+    cursor: pointer;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: transform 0.1s;
+}
+
+#overlay button:hover {
+    transform: scale(1.05);
+}
+
+#overlay button:active {
+    transform: scale(0.97);
+}
+
+#bar {
+    width: 720px;
+    max-width: 100vw;
+    background: #1c1c1c;
+    border: 1px solid #333;
+    border-top: none;
+    border-radius: 0 0 8px 8px;
+    padding: 8px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#bar span {
+    color: #555;
+    font-size: 11px;
+}
+
+#bar span b {
+    color: #e8c84a;
+}
+
+#kbtn {
+    padding: 6px 18px;
+    background: #e8c84a;
+    color: #111;
+    border: none;
+    border-radius: 6px;
+    font-weight: 900;
+    font-size: 12px;
+    cursor: pointer;
+    transition: transform 0.1s;
+}
+
+#kbtn:hover {
+    transform: scale(0.95)
+}
