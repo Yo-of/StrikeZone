@@ -8,11 +8,34 @@
 </head>
 <body>
     
-    
+        <h1>⚽ STRIKEZONE ⚽</h1>
 
+        <div class="hud">
+            <div class="team-block">
+                <div class="tname" style="color:#55ccff">YOU</div>
+                <div class="snum" id="sp">0</div>
+            </div>
+            <div id="timer">2:00</div>
+            <div class="team-block reverse">
+                <div class="tname" style="color:#ff5555">BOT</div>
+                <div class="snum" id="sc">0</div>
+            </div>
+        </div>
 
+        <div id="wrap">
+            <canvas id="c" width="720" height="440"></canvas>
+            <div id="overlay">
+                <h2>STRIKEZONE</h2>
+                <p>Move: <b>WASD / Arrows</b> &nbsp;|&nbsp; Sprint: <b>Shift</b> &nbsp;|&nbsp; Kick: <b>Space</b></p>
+                <button onclick="startGame()">▶ PLAY</button>
+            </div>
+        </div>
 
-    
+        <div id="bar">
+            <span>Move: <b>WASD / Arrows</b> &nbsp; Sprint: <b>Shift</b> &nbsp; Kick: <b>Space</b></span>
+            <button id="kbtn" onclick="doKick()">⚽ Kick</button>
+        </div>
+
     <script src="game.js"></script>
 </body>
 </html>
