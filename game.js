@@ -331,3 +331,8 @@ function drawBall() {
     cx.arc(B.x - r * 0.3, B.y - r * 0.32, r * 0.22, 0, Math.PI * 2);
     cx.fill();
 }
+
+function drawCelebration() {
+    if (celebT <= 0) return;
+    cx.
+}
