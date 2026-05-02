@@ -38,10 +38,12 @@ h1 {
     display: flex;
     align-items: center;
     gap: 10px;
+    width: 200px;
 }
 
 .team-block.reverse {
     flex-direction: row-reverse;
+    justify-content: flex-start;
 }
 
 .tname {
