@@ -145,7 +145,7 @@ function updBall() {
         if (B.y > GY && B.y < GY + GH) {
             sp++;
             document.getElementById('sp').textContent = sp;
-            celebMsg = 'GOAAAAL!'
+            celebMsg = '⚽ GOAAAAL! ⚽';
             celebT = 140;
             reset();
             return;
@@ -334,5 +334,62 @@ function drawBall() {
 
 function drawCelebration() {
     if (celebT <= 0) return;
-    cx.
+    cx.fillStyle = `rgba(0,0,0,${Math.min(1, celebT / 50) * 0.55})`;
+    cx.fillRect(0, 0, W, H);
+    cx.save();
+    cx.translate(W / 2, H / 2);
+    cx.fillStyle = celebMsg.includes('⚽') ? '#e8c84a' : '#ff5555';
+    cx.font = 'bold 66px Courier New';
+    cx.textAlign = 'center';
+    cx.textBaseline = 'middle';
+    cx.shadowColor = '#000';
+    cx.shadowBlur = 24;
+    cx.fillText(celebMsg, 0, 0);
+    cx.shadowBlur = 0;
+    cx.restore();
+    celebT--;
 }
+
+function drawArrow() {
+    if (!running || celebT > 0) return;
+    const dx = (PX + PW) - P.x, dy = H / 2 - P.y;
+    if (Math.hypot(dx, dy) < 90) return;
+    const a = Math.atan2(dy, dx);
+    cx.save();
+    cx.translate(P.x + Math.cos(a) * 26, P.y + Math.sin(a) * 26);
+    cx.rotate(a);
+    cx.fillStyle = 'rgba(255,220,0,0.8)';
+    cx.beginPath();
+    cx.moveTo(9, 0);
+    cx.lineTo(-5, -5);
+    cx.lineTO(-5, 5);
+    cx.closePath();
+    cx.fill();
+    cx.restore();
+}
+
+function loop() {
+    cx.clearRect(0, 0, W, H);
+    drawPitch();
+
+    if (running && celebT <= 0) {
+        updPlayer();
+        updCPU();
+        updBall();
+    }
+
+    drawAgent(CPU[0].x, CPU[0].y, '#991111', '#ff4444', '7');
+    drawAgent(CPU[1].x, CPU[1].y, '#991111', '#ff4444', '9');
+    drawAgent(CPU[2].x, CPU[2].y, '#991111', '#ff4444', '11');
+    drawAgent(CPU[3].x, CPU[3].y, '#886600', '#ffcc00', 'GK');
+    drawAgent(P.x, P.y, '#005588', '#33aaff', 'YOU');
+
+    drawBall();
+    drawArrow();
+    drawCelebration();
+
+    requestAnimationFrame(loop);
+}
+
+reset();
+loop();
