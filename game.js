@@ -169,7 +169,8 @@ function tick() {
     if (tLeft <= 0) {tLeft = 0; endGame(); }
     const m = Math.floor(tLeft / 60);
     const s = String(tLeft % 60).padStart(2, '0');
-    document.getElementById('timer').style.color = '#ff4444';
+    document.getElementById('timer').textContent = `${m}:${s}`;
+    if (tLeft <= 10) document.getElementById('timer').style.color = '#ff4444';
 }
 
 function endGame() {
@@ -242,7 +243,7 @@ function drawPitch() {
 
     cx.lineWidth = 2;
     cx.strokeRect(PX, H / 2 - 85, 90, 170);
-    cx.stokeRect(PX + PW - 90, H / 2 - 85, 90, 170);
+    cx.strokeRect(PX + PW - 90, H / 2 - 85, 90, 170);
 
     cx.fillStyle = 'rgba(255,255,255,0.28)';
     cx.fillRect(PX - GW, GY, GW, GH);
@@ -260,7 +261,7 @@ function drawPitch() {
         cx.moveTo(PX - GW, ny);
         cx.lineTo(PX, ny);
         cx.stroke();
-        cxbeginPath();
+        cx.beginPath();
         cx.moveTo(PX + PW, ny);
         cx.lineTo(PX + PW + GW, ny);
         cx.stroke();
@@ -362,7 +363,7 @@ function drawArrow() {
     cx.beginPath();
     cx.moveTo(9, 0);
     cx.lineTo(-5, -5);
-    cx.lineTO(-5, 5);
+    cx.lineTo(-5, 5);
     cx.closePath();
     cx.fill();
     cx.restore();
