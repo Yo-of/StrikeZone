@@ -165,4 +165,10 @@ function updBall() {
 
 function tick() {
     if (!running) return;
+    tLeft--;
+    if (tLeft <= 0) {tLeft = 0; endGame(); }
+    const m = Math.floor(tLeft / 60);
+    const s = String(tLeft % 60).padStart(2, '0');
+    document.getElementById('timer').style.color = '#ff4444';
 }
+
