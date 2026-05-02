@@ -172,3 +172,23 @@ function tick() {
     document.getElementById('timer').style.color = '#ff4444';
 }
 
+function endGame() {
+    running = false;
+    clearInterval(ticker);
+    const ov = document.getElementById('overlay');
+    let title, col;
+    if (sp > sc) {
+        title = 'YOU WIN!'; 
+        col = '#e8c84a';
+    }
+    else if (sc > sp) {
+        title = 'THE BOT WINS!'; 
+        col = '#ff5555';
+    }
+    else {
+        title = 'DRAW';
+        col = '#aaa'
+    }
+    ov.innerHTML = `
+    `
+}
